@@ -28,5 +28,12 @@
     [self.view addSubview:containerVC.view];
 
 ## Property
+    
+    containerVC.menuItemFont = [UIFont fontWithName:@"Futura-Medium" size:16];
+    containerVC.menuItemTitleColor = [UIColor whiteColor];
+    containerVC.menuItemSelectedTitleColor = [UIColor redColor];
+    containerVC.menuIndicatorColor = [UIColor yellowColor];
+    containerVC.menuBackGroudColor = [UIColor purpleColor];
+    
 ## Licence
 MIT
