@@ -1,7 +1,7 @@
 # YSLContainerViewController
 
 ## Demo
-![Dome](https://github.com/y-hryk/YSLContainerViewController/blob/master/sample.gif)
+![Dome](https://raw.githubusercontent.com/y-hryk/YSLContainerViewController/master/sample.gif)
 ## Requirement
 
 ## Install
