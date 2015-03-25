@@ -6,8 +6,8 @@
 
 ## Install
 
-### Manually
-Copy INBPullToRefresh directory to your project.
+ #### Manually
+ Copy INBPullToRefresh directory to your project.
 
 ## Usage
 
