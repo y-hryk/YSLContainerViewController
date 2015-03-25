@@ -22,7 +22,7 @@
 @property (nonatomic, strong, readonly) NSMutableArray *titles;
 @property (nonatomic, strong, readonly) NSMutableArray *childControllers;
 
-@property (nonatomic, strong) UIFont *menuItemFont;
+@property (nonatomic, strong) UIFont  *menuItemFont;
 @property (nonatomic, strong) UIColor *menuItemTitleColor;
 @property (nonatomic, strong) UIColor *menuItemSelectedTitleColor;
 @property (nonatomic, strong) UIColor *menuBackGroudColor;

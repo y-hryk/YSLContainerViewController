@@ -72,9 +72,6 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
         id obj = [self.childControllers objectAtIndex:i];
         if ([obj isKindOfClass:[UIViewController class]]) {
             UIViewController *controller = (UIViewController*)obj;
-//            [controller willMoveToParentViewController:self];
-//            [self addChildViewController:controller];
-//            [controller didMoveToParentViewController:self];
             CGFloat scrollWidth = _contentScrollView.frame.size.width;
             CGFloat scrollHeght = _contentScrollView.frame.size.height;
             controller.view.frame = CGRectMake(i * scrollWidth, 0, scrollWidth, scrollHeght);
@@ -98,6 +95,7 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
 }
 
 #pragma mark -- private
+
 - (void)setChildViewControllerWithCurrentIndex:(NSInteger)currentIndex
 {
     for (int i = 0; i < self.childControllers.count; i++) {
