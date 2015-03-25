@@ -3,7 +3,7 @@
 ## Demo
 ![Dome](https://raw.githubusercontent.com/y-hryk/YSLContainerViewController/master/sample.gif)
 ## Requirement
-
+not support landscape
 ## Install
 #### Manually
  Copy YSLContainerViewController directory to your project.
