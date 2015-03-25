@@ -1,0 +1,22 @@
+
+# Ignore python compiled files
+*.pyc
+
+# Ignore files build by xcode
+*.mode*v*
+*.pbxuser
+*.xccheckout
+#*.xcbkptlist
+#*.xcscheme
+#*.xcworkspacedata
+*.xcuserstate
+#xcschememanagement.plist
+build/
+.DS_Store
+._.*
+xcuserdata/
+DerivedData/
+
+# Ignore vim swaps
+*.swp
+
