@@ -4,10 +4,11 @@
 
 ## Requirement
 
-
-## Usage
+## Install
 
 ## Property
+
+## Usage
 
 ## Licence
 MIT
