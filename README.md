@@ -10,21 +10,10 @@
 Copy INBPullToRefresh directory to your project.
 
 ## Usage
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // NavigationBar
-    UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectZero];
-    titleView.font = [UIFont fontWithName:@"Futura-Medium" size:19];
-    titleView.textColor = [UIColor colorWithRed:0.333333 green:0.333333 blue:0.333333 alpha:1.0];
-    titleView.text = @"Menu";
-    [titleView sizeToFit];
-    titleView.backgroundColor = [UIColor clearColor];
-    self.navigationItem.titleView = titleView;
-    
-    // SetUp ViewControllers
-    PlayListTableViewController *playListVC = [[PlayListTableViewController alloc]initWithNibName:@"PlayListTableViewController" bundle:nil];
+    - (void)viewDidLoad {
+        [super viewDidLoad];
+        // SetUp ViewControllers
+         PlayListTableViewController *playListVC = [[PlayListTableViewController alloc]initWithNibName:@"PlayListTableViewController" bundle:nil];
     playListVC.title = @"PlayList";
     
     ArtistsViewController *artistVC = [[ArtistsViewController alloc]initWithNibName:@"ArtistsViewController" bundle:nil];
