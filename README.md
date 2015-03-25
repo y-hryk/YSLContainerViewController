@@ -10,6 +10,7 @@
 Copy INBPullToRefresh directory to your project.
 
 ## Usage
+
     UIViewController *vc1 = [[UIViewController alloc]init];
     vc1.title = @"vc1";
     UIViewController *vc2 = [[UIViewController alloc]init];
@@ -27,7 +28,6 @@ Copy INBPullToRefresh directory to your project.
                                                                                 parentViewController:self];
     [self.view addSubview:containerVC.view];
 
-   
 ## Property
 ## Licence
 MIT
