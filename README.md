@@ -5,10 +5,9 @@
 ## Requirement
 
 ## Install
-
 #### Manually
- Copy INBPullToRefresh directory to your project.
-
+ Copy YSLContainerViewController directory to your project.
+ 
 ## Usage
 
     UIViewController *vc1 = [[UIViewController alloc]init];
