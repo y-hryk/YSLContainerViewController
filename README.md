@@ -10,25 +10,19 @@
 Copy INBPullToRefresh directory to your project.
 
 ## Usage
-    - (void)viewDidLoad {
-        [super viewDidLoad];
-        // SetUp ViewControllers
-         PlayListTableViewController *playListVC = [[PlayListTableViewController alloc]initWithNibName:@"PlayListTableViewController" bundle:nil];
-    playListVC.title = @"PlayList";
+     UIViewController *vc1 = [[UIViewController alloc]init];
+    vc1.title = @"viewController1";
     
-    ArtistsViewController *artistVC = [[ArtistsViewController alloc]initWithNibName:@"ArtistsViewController" bundle:nil];
-    artistVC.title = @"Artists";
+    UIViewController *vc2 = [[UIViewController alloc]init];
+    vc2.title = @"viewController1";
     
-    SampleViewController *sampleVC1 = [[SampleViewController alloc]initWithNibName:@"SampleViewController" bundle:nil];
-    sampleVC1.title = @"Album";
+    UIViewController *vc3 = [[UIViewController alloc]init];
+    vc3.title = @"viewController1";
     
-    SampleViewController *sampleVC2 = [[SampleViewController alloc]initWithNibName:@"SampleViewController" bundle:nil];
-    sampleVC2.title = @"Track";
+    UIViewController *vc4 = [[UIViewController alloc]init];
+    vc4.title = @"viewController1";
     
-    SampleViewController *sampleVC3 = [[SampleViewController alloc]initWithNibName:@"SampleViewController" bundle:nil];
-    sampleVC3.title = @"Setting";
-    
-    // ContainerView
+     // ContainerView
     float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     
@@ -39,9 +33,8 @@ Copy INBPullToRefresh directory to your project.
     containerVC.menuItemFont = [UIFont fontWithName:@"Futura-Medium" size:16];
     
     [self.view addSubview:containerVC.view];
-}
 
-
+   
 ## Property
 ## Licence
 MIT
