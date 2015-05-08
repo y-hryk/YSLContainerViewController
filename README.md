@@ -7,6 +7,8 @@ not support landscape
 ## Install
 #### Manually
  Copy YSLContainerViewController directory to your project.
+ #### CocoaPods
+ Add pod 'YSLContainerViewController' to your Podfile.
  
 ## Usage
 
