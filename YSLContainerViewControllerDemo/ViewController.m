@@ -60,6 +60,13 @@
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"Futura-Medium" size:16];
     
+    // delegates for the children
+    playListVC.delegate = containerVC;
+    artistVC.delegate = containerVC;
+    sampleVC1.delegate = containerVC;
+    sampleVC2.delegate = containerVC;
+    sampleVC3.delegate = containerVC;
+    
     [self.view addSubview:containerVC.view];
 }
 

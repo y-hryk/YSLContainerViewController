@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YSLChildViewControllerDelegate.h"
 
 @interface DetailViewController : UIViewController
+
+@property (weak, nonatomic) id <YSLChildViewControllerDelegate> delegate;
 
 @end
