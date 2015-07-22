@@ -20,11 +20,18 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"SampleViewController viewWillAppear");
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (IBAction)btnPressed:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(childViewController:didChooseIndexValue:)]) {
+        // put it to index one for now
+        [self.delegate childViewController:self didChooseIndexValue:0];
+    }
 }
 
 @end

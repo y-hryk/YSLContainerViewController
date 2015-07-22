@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YSLChildViewControllerDelegate.h"
 
 @protocol YSLContainerViewControllerDelegate <NSObject>
 
@@ -14,7 +15,7 @@
 
 @end
 
-@interface YSLContainerViewController : UIViewController
+@interface YSLContainerViewController : UIViewController <YSLChildViewControllerDelegate>
 
 @property (nonatomic, weak) id <YSLContainerViewControllerDelegate> delegate;
 

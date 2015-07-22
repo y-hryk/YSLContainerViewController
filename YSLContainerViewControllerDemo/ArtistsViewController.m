@@ -62,7 +62,8 @@
     return _artistsArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         scellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"ArtistsCell";
     ArtistsCell *cell = (ArtistsCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     

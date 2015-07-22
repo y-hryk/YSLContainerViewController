@@ -92,6 +92,7 @@
 		D0DD9FBF1AFCB67E002CEBB6 /* YSLContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLContainerViewController.m; sourceTree = "<group>"; };
 		D0DD9FC01AFCB67E002CEBB6 /* YSLScrollMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLScrollMenuView.h; sourceTree = "<group>"; };
 		D0DD9FC11AFCB67E002CEBB6 /* YSLScrollMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLScrollMenuView.m; sourceTree = "<group>"; };
+		EC861EF71B34BDB0006129DF /* YSLChildViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLChildViewControllerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +228,7 @@
 		D0DD9FBD1AFCB67E002CEBB6 /* YSLContainerViewController */ = {
 			isa = PBXGroup;
 			children = (
+				EC861EF71B34BDB0006129DF /* YSLChildViewControllerDelegate.h */,
 				D0DD9FBE1AFCB67E002CEBB6 /* YSLContainerViewController.h */,
 				D0DD9FBF1AFCB67E002CEBB6 /* YSLContainerViewController.m */,
 				D0DD9FC01AFCB67E002CEBB6 /* YSLScrollMenuView.h */,
