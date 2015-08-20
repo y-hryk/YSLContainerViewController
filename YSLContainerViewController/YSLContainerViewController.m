@@ -20,12 +20,21 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
 @end
 
 @implementation YSLContainerViewController
+- (id)initWithControllers:(NSArray *)controllers
+             topBarHeight:(CGFloat)topBarHeight
+     parentViewController:(UIViewController *)parentViewController selectedIndex:(NSInteger)index{
+    
+    self =  [self initWithControllers:controllers topBarHeight:topBarHeight parentViewController:parentViewController];
+    self.currentIndex = index;
+    return self;
+}
 
 - (id)initWithControllers:(NSArray *)controllers
              topBarHeight:(CGFloat)topBarHeight
      parentViewController:(UIViewController *)parentViewController
 {
     self = [super init];
+    self.currentIndex = 0;
     if (self) {
         
         [parentViewController addChildViewController:self];
@@ -91,7 +100,7 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
     [self.view addSubview:_menuView];
     [_menuView setShadowView];
     
-    [self scrollMenuViewSelectedIndex:0];
+    [self scrollMenuViewSelectedIndex:_currentIndex];
 }
 
 #pragma mark -- private
@@ -190,6 +199,11 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
         [self.delegate containerViewItemIndex:self.currentIndex currentController:_childControllers[self.currentIndex]];
     }
     [self setChildViewControllerWithCurrentIndex:self.currentIndex];
+}
+
+
+- (void) selectTabByIndex:(NSInteger)index{
+    [self scrollMenuViewSelectedIndex:index];
 }
 
 @end

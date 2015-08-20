@@ -34,4 +34,5 @@
 - (void)setItemTextColor:(UIColor *)itemTextColor
     seletedItemTextColor:(UIColor *)selectedItemTextColor
             currentIndex:(NSInteger)currentIndex;
+
 @end

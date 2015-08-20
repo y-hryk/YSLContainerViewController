@@ -120,7 +120,7 @@ static const CGFloat kYSLIndicatorHeight = 3;
     }
     
     if (indicatorX < kYSLScrollMenuViewMargin || indicatorX > self.scrollView.contentSize.width - (kYSLScrollMenuViewMargin + kYSLScrollMenuViewWidth)) {
-        return;
+ //       return;
     }
     _indicatorView.frame = CGRectMake(indicatorX, _scrollView.frame.size.height - kYSLIndicatorHeight, kYSLScrollMenuViewWidth, kYSLIndicatorHeight);
     //  NSLog(@"retio : %f",_indicatorView.frame.origin.x);
