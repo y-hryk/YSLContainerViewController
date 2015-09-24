@@ -8,15 +8,20 @@
 *.xccheckout
 #*.xcbkptlist
 #*.xcscheme
-#*.xcworkspacedata
+*.xcworkspacedata
 *.xcuserstate
 #xcschememanagement.plist
 build/
 .DS_Store
 ._.*
-xcuserdata/
-DerivedData/
+xcuserdata
+DerivedData
+*.hmap
+*.ipa
+
 
 # Ignore vim swaps
 *.swp
 
+# CocoaPods
+Pods/
