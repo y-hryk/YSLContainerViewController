@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7474638AFB76B6EA4BA50C72 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F30E86D2C64C7380FD9DF0A /* libPods.a */; };
 		D098129D1AC165570085833D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D098129C1AC165570085833D /* main.m */; };
 		D09812A01AC165570085833D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D098129F1AC165570085833D /* AppDelegate.m */; };
 		D09812A31AC165570085833D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09812A21AC165570085833D /* ViewController.m */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		605B3FC8EEF8B40D3D937634 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		6F30E86D2C64C7380FD9DF0A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09812971AC165570085833D /* YSLContainerViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YSLContainerViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D098129B1AC165570085833D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D098129C1AC165570085833D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		D0DD9FBF1AFCB67E002CEBB6 /* YSLContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLContainerViewController.m; sourceTree = "<group>"; };
 		D0DD9FC01AFCB67E002CEBB6 /* YSLScrollMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLScrollMenuView.h; sourceTree = "<group>"; };
 		D0DD9FC11AFCB67E002CEBB6 /* YSLScrollMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLScrollMenuView.m; sourceTree = "<group>"; };
+		D6CE4925CC9E4E7B41C45DFC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7474638AFB76B6EA4BA50C72 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,12 +117,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		949164FA4221D7FCC9041612 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				605B3FC8EEF8B40D3D937634 /* Pods.debug.xcconfig */,
+				D6CE4925CC9E4E7B41C45DFC /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BB49C82408E18EF74A5257CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F30E86D2C64C7380FD9DF0A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D098128E1AC165570085833D = {
 			isa = PBXGroup;
 			children = (
 				D09812991AC165570085833D /* YSLContainerViewControllerDemo */,
 				D09812B31AC165570085833D /* YSLContainerViewControllerDemoTests */,
 				D09812981AC165570085833D /* Products */,
+				949164FA4221D7FCC9041612 /* Pods */,
+				BB49C82408E18EF74A5257CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,9 +266,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D09812BA1AC165570085833D /* Build configuration list for PBXNativeTarget "YSLContainerViewControllerDemo" */;
 			buildPhases = (
+				4EB9FAECD43D48762AA0F601 /* Check Pods Manifest.lock */,
 				D09812931AC165570085833D /* Sources */,
 				D09812941AC165570085833D /* Frameworks */,
 				D09812951AC165570085833D /* Resources */,
+				ECCD8D8874D5CA96B486405C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -343,6 +369,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4EB9FAECD43D48762AA0F601 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ECCD8D8874D5CA96B486405C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D09812931AC165570085833D /* Sources */ = {
@@ -479,10 +538,11 @@
 		};
 		D09812BB1AC165570085833D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 605B3FC8EEF8B40D3D937634 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YSLContainerViewControllerDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -490,10 +550,11 @@
 		};
 		D09812BC1AC165570085833D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6CE4925CC9E4E7B41C45DFC /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YSLContainerViewControllerDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
