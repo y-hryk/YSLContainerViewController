@@ -24,7 +24,7 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
 - (id)initWithControllers:(NSArray *)controllers
              topBarHeight:(CGFloat)topBarHeight
      parentViewController:(UIViewController *)parentViewController
-{
+            selectedIndex:(NSInteger)index {
     self = [super init];
     if (self) {
         
@@ -35,6 +35,7 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
         _titles = [[NSMutableArray alloc] init];
         _childControllers = [[NSMutableArray alloc] init];
         _childControllers = [controllers mutableCopy];
+        _currentIndex = index;
         
         NSMutableArray *titles = [NSMutableArray array];
         for (UIViewController *vc in _childControllers) {
@@ -43,6 +44,13 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
         _titles = [titles mutableCopy];
     }
     return self;
+}
+
+- (id)initWithControllers:(NSArray *)controllers
+             topBarHeight:(CGFloat)topBarHeight
+     parentViewController:(UIViewController *)parentViewController
+{
+    return [self initWithControllers:controllers topBarHeight:topBarHeight parentViewController:parentViewController selectedIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,8 +98,9 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
     [_menuView setItemTitleArray:self.titles];
     [self.view addSubview:_menuView];
     [_menuView setShadowView];
+    [_menuView layoutIfNeeded];
     
-    [self scrollMenuViewSelectedIndex:0];
+    [self scrollMenuViewSelectedIndex:_currentIndex];
 }
 
 #pragma mark -- private
