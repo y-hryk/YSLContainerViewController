@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  YSLContainerViewControllerDemo
+//  YSLContainerViewControllerDemo Test
 //
 //  Created by yamaguchi on 2015/03/24.
 //  Copyright (c) 2015年 h.yamaguchi. All rights reserved.
@@ -18,6 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:0.843137 green:0.843137 blue:0.843137 alpha:1.0];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     return YES;
 }
 
