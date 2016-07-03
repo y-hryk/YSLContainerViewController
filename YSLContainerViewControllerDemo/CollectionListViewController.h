@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol ScrollCategoryDelegate <NSObject>
+@protocol ScrollWithContentDelegate <NSObject>
 
-- (void) iAmScrollingWithContentOffset:(CGFloat) contentOffset;
+- (void) scrollingWithContentOffset:(CGFloat) contentOffset;
 
 @end
 
 @interface CollectionListViewController : UIViewController
 
-@property id<ScrollCategoryDelegate> delegate;
+@property id<ScrollWithContentDelegate> delegate;
 
 @end

@@ -20,17 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectZero];
-    titleView.font = [UIFont fontWithName:@"Futura-Medium" size:19];
-    titleView.textColor = [UIColor colorWithRed:0.333333 green:0.333333 blue:0.333333 alpha:1.0];
-    titleView.text = @"HomePage";
-    [titleView sizeToFit];
-    titleView.backgroundColor = [UIColor clearColor];
-    self.navigationItem.titleView = titleView;
-    
-    ;
-    
     self.titlesArray = @[@"PlayList",@"Artists",@"Album", @"Track",@"Settings",];
     // Do any additional setup after loading the view.
 }
@@ -70,6 +59,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath
     vc.indexMenu = (int)indexPath.row;
     vc.titlesArray = self.titlesArray;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (CGSize)collectionView:(UICollectionView *)aCollectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)anIndexPath
+{
+    return CGSizeMake(self.view.frame.size.width, 100);
 }
 /*
 #pragma mark - Navigation

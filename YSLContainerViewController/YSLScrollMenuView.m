@@ -96,11 +96,8 @@
         
         // indicator
         _indicatorView = [[UIView alloc]init];
-        _indicatorView.frame = CGRectMake(0, _scrollView.frame.size.height - kYSLIndicatorHeight - 5, kYSLScrollMenuViewWidth, kYSLIndicatorHeight);
+        _indicatorView.frame = CGRectMake(0, _scrollView.frame.size.height - kYSLIndicatorHeight , kYSLScrollMenuViewWidth, kYSLIndicatorHeight);
         _indicatorView.backgroundColor = self.itemIndicatorColor;
-        
-        
-        
         
         [_scrollView addSubview:_indicatorView];
     }
@@ -158,12 +155,16 @@
 #pragma mark -- private
 
 // menu shadow
-- (void)setShadowView
+- (void)setShadowView:(BOOL) hasShadow
 {
-//    UIView *view = [[UIView alloc]init];
-//    view.frame = CGRectMake(0, self.frame.size.height - 0.5, CGRectGetWidth(self.frame), 0.5);
-//    view.backgroundColor = [UIColor lightGrayColor];
-//    [self addSubview:view];
+    if (hasShadow)
+    {
+        UIView *view = [[UIView alloc]init];
+        view.frame = CGRectMake(0, self.frame.size.height - 0.5, CGRectGetWidth(self.frame), 0.5);
+        view.backgroundColor = [UIColor lightGrayColor];
+        [self addSubview:view];
+
+    }
 }
 
 - (void)layoutSubviews

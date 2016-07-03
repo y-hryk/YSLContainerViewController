@@ -29,7 +29,6 @@
 @property (nonatomic, strong) UIColor *menuIndicatorColor;
 
 - (id)initWithControllers:(NSArray *)controllers
-             topBarHeight:(CGFloat)topBarHeight
      parentViewController:(UIViewController *)parentViewController
              heightOfView:(float) heightOfView;
 

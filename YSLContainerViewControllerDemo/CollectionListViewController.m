@@ -36,12 +36,13 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma -mark CollectionViewDelegate Methods
+#pragma -mark  CollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
 {
@@ -53,9 +54,8 @@
     return 1;
 }
 
-#pragma -mark Create The Cells and Customizations when press
 - (CollectionCellsCollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                        cellForItemAtIndexPath:(NSIndexPath *)indexPath
+                               cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CollectionCellsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionCellsCollectionViewCell" forIndexPath:indexPath];
     
@@ -64,22 +64,27 @@
     return cell;
 }
 
+
+#pragma -mark CollectionViewDelegate
+
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
 
+#pragma -mark UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)aCollectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)anIndexPath
 {
     return CGSizeMake(self.view.frame.size.width, 80);
 }
 
+#pragma mark ScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if ([self.delegate respondsToSelector:@selector(iAmScrollingWithContentOffset:)])
+    if ([self.delegate respondsToSelector:@selector(scrollingWithContentOffset:)])
     {
-        [self.delegate iAmScrollingWithContentOffset:scrollView.contentOffset.y];
+        [self.delegate scrollingWithContentOffset:scrollView.contentOffset.y];
     }
 }
 

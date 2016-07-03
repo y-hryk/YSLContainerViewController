@@ -217,7 +217,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hair-CareCat" translatesAutoresizingMaskIntoConstraints="NO" id="ia1-ha-ykn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ia1-ha-ykn">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="212"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="212" id="d73-b8-Dms"/>
@@ -247,7 +247,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomView" destination="97J-D0-OnJ" id="Ie8-2Y-45t"/>
-                        <outlet property="heightOfView" destination="d73-b8-Dms" id="fsf-ft-Oe9"/>
+                        <outlet property="heightOfTopView" destination="d73-b8-Dms" id="FAc-nV-Dbu"/>
                         <outlet property="topView" destination="ia1-ha-ykn" id="ZOJ-Wt-AzW"/>
                     </connections>
                 </viewController>
@@ -256,7 +256,4 @@
             <point key="canvasLocation" x="2509" y="-146"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Hair-CareCat" width="1125" height="600"/>
-    </resources>
 </document>

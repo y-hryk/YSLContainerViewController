@@ -12,6 +12,12 @@
 #define kYSLScrollMenuViewWidth   110
 #define kYSLScrollMenuViewMargin  10
 #define kYSLIndicatorHeight  1.5f
-#define kYSLScrollMenuViewHeight 45.5
+#define kYSLScrollMenuViewHeight 45.5f
+
+#define menuHasShadow NO
+#define categoryImageHeight 212.0f
+
+
+#define middleTitleHeight 40.0f
 
 #endif /* Constants_h */

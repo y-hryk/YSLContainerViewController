@@ -12,7 +12,6 @@
 
 @interface YSLContainerViewController () <UIScrollViewDelegate, YSLScrollMenuViewDelegate>
 
-@property (nonatomic, assign) CGFloat topBarHeight;
 @property (nonatomic, assign) CGFloat heightOfView;
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) YSLScrollMenuView *menuView;
@@ -22,17 +21,14 @@
 @implementation YSLContainerViewController
 
 - (id)initWithControllers:(NSArray *)controllers
-             topBarHeight:(CGFloat)topBarHeight
      parentViewController:(UIViewController *)parentViewController
              heightOfView:(float) heightOfView
 {
     self = [super init];
-    if (self) {
-        
+    if (self)
+    {
         [parentViewController addChildViewController:self];
         [self didMoveToParentViewController:parentViewController];
-        
-        _topBarHeight = topBarHeight;
         _titles = [[NSMutableArray alloc] init];
         _childControllers = [[NSMutableArray alloc] init];
         _childControllers = [controllers mutableCopy];
@@ -60,9 +56,7 @@
     
     // ContentScrollview setup
     _contentScrollView = [[UIScrollView alloc]init];
-    
-    _contentScrollView.frame = CGRectMake(0,_topBarHeight + kYSLScrollMenuViewHeight, self.view.frame.size.width,_heightOfView);
-    
+    _contentScrollView.frame = CGRectMake(0, kYSLScrollMenuViewHeight, self.view.frame.size.width,_heightOfView);
     _contentScrollView.backgroundColor = [UIColor clearColor];
     _contentScrollView.pagingEnabled = YES;
     _contentScrollView.delegate = self;
@@ -72,7 +66,7 @@
     [self.view addSubview:_contentScrollView];
     _contentScrollView.contentSize = CGSizeMake(_contentScrollView.frame.size.width * self.childControllers.count, _contentScrollView.frame.size.height - kYSLScrollMenuViewHeight);
 
-    _menuView = [[YSLScrollMenuView alloc]initWithFrame:CGRectMake(0, _topBarHeight, self.view.frame.size.width, kYSLScrollMenuViewHeight)];
+    _menuView = [[YSLScrollMenuView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kYSLScrollMenuViewHeight)];
     _menuView.backgroundColor = [UIColor clearColor];
     _menuView.delegate = self;
     _menuView.viewbackgroudColor = self.menuBackGroudColor;
@@ -82,7 +76,7 @@
     _menuView.scrollView.scrollsToTop = NO;
     [_menuView setItemTitleArray:self.titles];
     [self.view addSubview:_menuView];
-    [_menuView setShadowView];
+    [_menuView setShadowView:menuHasShadow];
     
     [self scrollMenuViewSelectedIndex:0];
 }
