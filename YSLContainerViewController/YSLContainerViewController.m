@@ -8,12 +8,12 @@
 
 #import "YSLContainerViewController.h"
 #import "YSLScrollMenuView.h"
-
-static const CGFloat kYSLScrollMenuViewHeight = 40;
+#import "Constants.h"
 
 @interface YSLContainerViewController () <UIScrollViewDelegate, YSLScrollMenuViewDelegate>
 
 @property (nonatomic, assign) CGFloat topBarHeight;
+@property (nonatomic, assign) CGFloat heightOfView;
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) YSLScrollMenuView *menuView;
 
@@ -24,6 +24,7 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
 - (id)initWithControllers:(NSArray *)controllers
              topBarHeight:(CGFloat)topBarHeight
      parentViewController:(UIViewController *)parentViewController
+             heightOfView:(float) heightOfView
 {
     self = [super init];
     if (self) {
@@ -35,10 +36,11 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
         _titles = [[NSMutableArray alloc] init];
         _childControllers = [[NSMutableArray alloc] init];
         _childControllers = [controllers mutableCopy];
-        
+        _heightOfView = heightOfView;
         NSMutableArray *titles = [NSMutableArray array];
-        for (UIViewController *vc in _childControllers) {
-            [titles addObject:[vc valueForKey:@"title"]];
+        for (UIViewController *vc in _childControllers)
+        {
+            [titles addObject:[[vc valueForKey:@"title"] uppercaseString]];
         }
         _titles = [titles mutableCopy];
     }
@@ -58,27 +60,18 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
     
     // ContentScrollview setup
     _contentScrollView = [[UIScrollView alloc]init];
-    _contentScrollView.frame = CGRectMake(0,_topBarHeight + kYSLScrollMenuViewHeight, self.view.frame.size.width, self.view.frame.size.height - (_topBarHeight + kYSLScrollMenuViewHeight));
+    
+    _contentScrollView.frame = CGRectMake(0,_topBarHeight + kYSLScrollMenuViewHeight, self.view.frame.size.width,_heightOfView);
+    
     _contentScrollView.backgroundColor = [UIColor clearColor];
     _contentScrollView.pagingEnabled = YES;
     _contentScrollView.delegate = self;
     _contentScrollView.showsHorizontalScrollIndicator = NO;
     _contentScrollView.scrollsToTop = NO;
+    _contentScrollView.tag = 1001;
     [self.view addSubview:_contentScrollView];
-    _contentScrollView.contentSize = CGSizeMake(_contentScrollView.frame.size.width * self.childControllers.count, _contentScrollView.frame.size.height);
-    
-    // ContentViewController setup
-    for (int i = 0; i < self.childControllers.count; i++) {
-        id obj = [self.childControllers objectAtIndex:i];
-        if ([obj isKindOfClass:[UIViewController class]]) {
-            UIViewController *controller = (UIViewController*)obj;
-            CGFloat scrollWidth = _contentScrollView.frame.size.width;
-            CGFloat scrollHeght = _contentScrollView.frame.size.height;
-            controller.view.frame = CGRectMake(i * scrollWidth, 0, scrollWidth, scrollHeght);
-            [_contentScrollView addSubview:controller.view];
-        }
-    }
-    // meunView
+    _contentScrollView.contentSize = CGSizeMake(_contentScrollView.frame.size.width * self.childControllers.count, _contentScrollView.frame.size.height - kYSLScrollMenuViewHeight);
+
     _menuView = [[YSLScrollMenuView alloc]initWithFrame:CGRectMake(0, _topBarHeight, self.view.frame.size.width, kYSLScrollMenuViewHeight)];
     _menuView.backgroundColor = [UIColor clearColor];
     _menuView.delegate = self;
@@ -102,9 +95,14 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
         id obj = self.childControllers[i];
         if ([obj isKindOfClass:[UIViewController class]]) {
             UIViewController *controller = (UIViewController*)obj;
-            if (i == currentIndex) {
-                [controller willMoveToParentViewController:self];
+            if (i == currentIndex)
+            {
                 [self addChildViewController:controller];
+                [controller willMoveToParentViewController:self];
+                CGFloat scrollWidth = _contentScrollView.frame.size.width;
+                CGFloat scrollHeght = _contentScrollView.frame.size.height;
+                controller.view.frame = CGRectMake(i * scrollWidth, 0, scrollWidth, scrollHeght);
+                [self.contentScrollView addSubview:controller.view];
                 [controller didMoveToParentViewController:self];
             } else {
                 [controller willMoveToParentViewController:self];
@@ -115,6 +113,13 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
     }
 }
 #pragma mark -- YSLScrollMenuView Delegate
+
+- (void) goToSelectedViewController:(NSInteger)index
+{
+    [self scrollMenuViewSelectedIndex:index];
+    [_menuView moveIndicatorViewToCurrentIndex:kYSLScrollMenuViewMargin*(index+1) + kYSLScrollMenuViewWidth*index];
+    [_menuView.scrollView setContentOffset:CGPointMake(kYSLScrollMenuViewMargin*index + kYSLScrollMenuViewWidth*index, 0) animated:NO];
+}
 
 - (void)scrollMenuViewSelectedIndex:(NSInteger)index
 {
@@ -151,7 +156,8 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
     nextItemOffsetX = (_menuView.scrollView.contentSize.width - _menuView.scrollView.frame.size.width) * targetIndex / (_menuView.itemViewArray.count - 1);
     currentItemOffsetX = (_menuView.scrollView.contentSize.width - _menuView.scrollView.frame.size.width) * self.currentIndex / (_menuView.itemViewArray.count - 1);
     
-    if (targetIndex >= 0 && targetIndex < self.childControllers.count) {
+    if (targetIndex >= 0 && targetIndex < self.childControllers.count)
+    {
         // MenuView Move
         CGFloat indicatorUpdateRatio = ratio;
         if (isToNextItem) {
@@ -162,7 +168,8 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
             
             indicatorUpdateRatio = indicatorUpdateRatio * 1;
             [_menuView setIndicatorViewFrameWithRatio:indicatorUpdateRatio isNextItem:isToNextItem toIndex:self.currentIndex];
-        } else {
+        } else
+        {
             
             CGPoint offset = _menuView.scrollView.contentOffset;
             offset.x = currentItemOffsetX - (nextItemOffsetX - currentItemOffsetX) * ratio;

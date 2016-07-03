@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
+@property (nonatomic, assign) int indexMenu;
+@property (nonatomic,strong) NSArray *titlesArray;
 
 @end
 

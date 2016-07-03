@@ -30,6 +30,9 @@
 
 - (id)initWithControllers:(NSArray *)controllers
              topBarHeight:(CGFloat)topBarHeight
-     parentViewController:(UIViewController *)parentViewController;
+     parentViewController:(UIViewController *)parentViewController
+             heightOfView:(float) heightOfView;
+
+- (void) goToSelectedViewController:(NSInteger)index;
 
 @end

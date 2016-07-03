@@ -7,15 +7,9 @@
 //
 
 #import "YSLScrollMenuView.h"
-
-static const CGFloat kYSLScrollMenuViewWidth  = 90;
-static const CGFloat kYSLScrollMenuViewMargin = 10;
-static const CGFloat kYSLIndicatorHeight = 3;
+#import "Constants.h"
 
 @interface YSLScrollMenuView ()
-
-
-@property (nonatomic, strong) UIView *indicatorView;
 
 @end
 
@@ -102,10 +96,21 @@ static const CGFloat kYSLIndicatorHeight = 3;
         
         // indicator
         _indicatorView = [[UIView alloc]init];
-        _indicatorView.frame = CGRectMake(10, _scrollView.frame.size.height - kYSLIndicatorHeight, kYSLScrollMenuViewWidth, kYSLIndicatorHeight);
+        _indicatorView.frame = CGRectMake(0, _scrollView.frame.size.height - kYSLIndicatorHeight - 5, kYSLScrollMenuViewWidth, kYSLIndicatorHeight);
         _indicatorView.backgroundColor = self.itemIndicatorColor;
+        
+        
+        
+        
         [_scrollView addSubview:_indicatorView];
     }
+}
+
+- (void)moveIndicatorViewToCurrentIndex:(NSInteger) index
+{
+    CGRect rect = _indicatorView.frame;
+    rect.origin.x = index;
+    _indicatorView.frame = rect;
 }
 
 #pragma mark -- public
@@ -123,7 +128,6 @@ static const CGFloat kYSLIndicatorHeight = 3;
         return;
     }
     _indicatorView.frame = CGRectMake(indicatorX, _scrollView.frame.size.height - kYSLIndicatorHeight, kYSLScrollMenuViewWidth, kYSLIndicatorHeight);
-    //  NSLog(@"retio : %f",_indicatorView.frame.origin.x);
 }
 
 - (void)setItemTextColor:(UIColor *)itemTextColor
@@ -156,10 +160,10 @@ static const CGFloat kYSLIndicatorHeight = 3;
 // menu shadow
 - (void)setShadowView
 {
-    UIView *view = [[UIView alloc]init];
-    view.frame = CGRectMake(0, self.frame.size.height - 0.5, CGRectGetWidth(self.frame), 0.5);
-    view.backgroundColor = [UIColor lightGrayColor];
-    [self addSubview:view];
+//    UIView *view = [[UIView alloc]init];
+//    view.frame = CGRectMake(0, self.frame.size.height - 0.5, CGRectGetWidth(self.frame), 0.5);
+//    view.backgroundColor = [UIColor lightGrayColor];
+//    [self addSubview:view];
 }
 
 - (void)layoutSubviews
