@@ -16,8 +16,6 @@
 
 #define menuHasShadow NO
 #define categoryImageHeight 212.0f
-
-
 #define middleTitleHeight 40.0f
 
 #endif /* Constants_h */
