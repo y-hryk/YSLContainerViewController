@@ -14,7 +14,7 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
 @interface YSLContainerViewController () <UIScrollViewDelegate, YSLScrollMenuViewDelegate>
 
 @property (nonatomic, assign) CGFloat topBarHeight;
-@property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, readwrite) NSUInteger currentIndex;
 @property (nonatomic, strong) YSLScrollMenuView *menuView;
 
 @end
@@ -24,6 +24,7 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
 - (id)initWithControllers:(NSArray *)controllers
              topBarHeight:(CGFloat)topBarHeight
      parentViewController:(UIViewController *)parentViewController
+         withCurrentIndex:(NSUInteger)currentIndex
 {
     self = [super init];
     if (self) {
@@ -32,8 +33,6 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
         [self didMoveToParentViewController:parentViewController];
         
         _topBarHeight = topBarHeight;
-        _titles = [[NSMutableArray alloc] init];
-        _childControllers = [[NSMutableArray alloc] init];
         _childControllers = [controllers mutableCopy];
         
         NSMutableArray *titles = [NSMutableArray array];
@@ -41,7 +40,9 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
             [titles addObject:[vc valueForKey:@"title"]];
         }
         _titles = [titles mutableCopy];
+        _currentIndex = currentIndex;
     }
+    
     return self;
 }
 
@@ -91,7 +92,12 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
     [self.view addSubview:_menuView];
     [_menuView setShadowView];
     
-    [self scrollMenuViewSelectedIndex:0];
+//    self.currentIndex = 0;
+    [self scrollMenuViewSelectedIndex:self.currentIndex];
+}
+
+- (void)selectViewControllerAtIndex:(NSUInteger)index {
+    [self scrollMenuViewSelectedIndex:index];
 }
 
 #pragma mark -- private
@@ -114,6 +120,7 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
         }
     }
 }
+
 #pragma mark -- YSLScrollMenuView Delegate
 
 - (void)scrollMenuViewSelectedIndex:(NSInteger)index

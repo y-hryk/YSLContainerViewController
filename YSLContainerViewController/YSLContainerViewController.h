@@ -22,6 +22,8 @@
 @property (nonatomic, strong, readonly) NSMutableArray *titles;
 @property (nonatomic, strong, readonly) NSMutableArray *childControllers;
 
+@property (nonatomic, readonly) NSUInteger currentIndex;
+
 @property (nonatomic, strong) UIFont  *menuItemFont;
 @property (nonatomic, strong) UIColor *menuItemTitleColor;
 @property (nonatomic, strong) UIColor *menuItemSelectedTitleColor;
@@ -30,6 +32,8 @@
 
 - (id)initWithControllers:(NSArray *)controllers
              topBarHeight:(CGFloat)topBarHeight
-     parentViewController:(UIViewController *)parentViewController;
+     parentViewController:(UIViewController *)parentViewController
+         withCurrentIndex:(NSUInteger)currentIndex;
+- (void)selectViewControllerAtIndex:(NSUInteger)index;
 
 @end
