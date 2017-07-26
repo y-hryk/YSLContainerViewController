@@ -1,28 +1,38 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TDC-gT-HD1">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TDC-gT-HD1">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Container View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContainerViewController" id="vXZ-lx-hvc" customClass="ContainerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5YF-mX-aLd"/>
+                    <navigationItem key="navigationItem" id="5YF-mX-aLd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="MMQ-IE-cqF">
+                            <connections>
+                                <action selector="goToNextViewController:" destination="vXZ-lx-hvc" id="AAq-Nn-yKQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="352" y="210"/>
+            <point key="canvasLocation" x="1249" y="209"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KQZ-9S-N8x">
@@ -33,12 +43,62 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="ad6-Hp-2s5"/>
+                        <segue destination="SSB-RN-9wQ" kind="relationship" relationship="rootViewController" id="slO-nk-wTc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVT-Jy-ZfT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-310" y="210"/>
+        </scene>
+        <!--Initial View Controller-->
+        <scene sceneID="Zhc-7D-MQq">
+            <objects>
+                <viewController storyboardIdentifier="InitialViewController" id="SSB-RN-9wQ" customClass="InitialViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V3z-b4-VZ0"/>
+                        <viewControllerLayoutGuide type="bottom" id="xAC-qW-hu4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1OY-eo-NaM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NI9-qe-CgS">
+                                <rect key="frame" x="58" y="316.5" width="258" height="33"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Second View Controller Selected">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTapSecondViewControllerButton:" destination="SSB-RN-9wQ" eventType="touchUpInside" id="tF4-nl-CHT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsd-jE-QBL">
+                                <rect key="frame" x="70.5" y="275.5" width="233" height="33"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="First View Controller Selected">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTapFirstViewControllerButton:" destination="SSB-RN-9wQ" eventType="touchUpInside" id="T88-jZ-Oym"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NI9-qe-CgS" firstAttribute="centerY" secondItem="1OY-eo-NaM" secondAttribute="centerY" id="5RO-SA-nP6"/>
+                            <constraint firstItem="gsd-jE-QBL" firstAttribute="centerX" secondItem="1OY-eo-NaM" secondAttribute="centerX" id="LKM-OW-D8Z"/>
+                            <constraint firstItem="NI9-qe-CgS" firstAttribute="centerX" secondItem="1OY-eo-NaM" secondAttribute="centerX" id="tbb-7O-XUy"/>
+                            <constraint firstItem="NI9-qe-CgS" firstAttribute="top" secondItem="gsd-jE-QBL" secondAttribute="bottom" constant="8" id="w4d-lh-FNj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fAa-kg-iW6"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="ContainerSegue" id="wDn-Bx-cZT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tuM-sI-TyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="463" y="209"/>
         </scene>
     </scenes>
 </document>
