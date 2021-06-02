@@ -27,6 +27,7 @@
 @property (nonatomic, strong) UIColor *menuItemSelectedTitleColor;
 @property (nonatomic, strong) UIColor *menuBackGroudColor;
 @property (nonatomic, strong) UIColor *menuIndicatorColor;
+@property (nonatomic) CGFloat menuScrollMenuViewWidth;
 
 - (id)initWithControllers:(NSArray *)controllers
              topBarHeight:(CGFloat)topBarHeight

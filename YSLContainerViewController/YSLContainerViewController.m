@@ -86,6 +86,7 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
     _menuView.itemfont = self.menuItemFont;
     _menuView.itemTitleColor = self.menuItemTitleColor;
     _menuView.itemIndicatorColor = self.menuIndicatorColor;
+    _menuView.itemScrollMenuViewWidth = self.menuScrollMenuViewWidth;
     _menuView.scrollView.scrollsToTop = NO;
     [_menuView setItemTitleArray:self.titles];
     [self.view addSubview:_menuView];
